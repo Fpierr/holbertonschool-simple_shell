@@ -9,7 +9,7 @@
  */
 int execute_builtin(command_t *cmd)
 {
-	if (cmd == NULL || cmd->args[0] == NULL || cmd->args == NULL)
+	if (cmd == NULL || cmd->args == NULL || cmd->args[0] == NULL)
 	{
 		fprintf(stderr, "Error: Invalid builtin command.\n");
 		return (-1);
@@ -18,7 +18,7 @@ int execute_builtin(command_t *cmd)
 	{
 		if (cmd->args[1] != NULL)
 		{
-			if (cmd->args[1] != 0)
+			if (chdir(cmd->args[1]) != 0)
 			{
 				perror("chdir");
 				return (-1);

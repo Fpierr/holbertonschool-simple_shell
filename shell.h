@@ -1,6 +1,8 @@
 #ifndef _SHELL_H_
 #define _SHELL_H_
 
+#define INPUT_SIZE_MAX 1024
+
 /* header file library */
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,7 +12,9 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
+#include <fcntl.h>
 #include <signal.h>
+#include <errno.h>
 
 /**
  * enum symbol_type_s - Enumeration of the symbol to create a simple shell
@@ -75,5 +79,9 @@ int execute_builtin(command_t *cmd);
 static void handle_signal(int signo);
 void setup_signal_handlers(void);
 int print_parent_pid(void);
+void display_prompt(void);
+void display_result(int result);
+void display_error(const char *msg);
+void display_command(command_t *cmd);
 
 #endif /* SHELL_H */
