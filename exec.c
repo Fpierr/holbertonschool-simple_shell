@@ -1,4 +1,5 @@
 #include "shell.h"
+#include <fcntl.h>
 
 /**
  * execute_command - fonction to execute a command in the simple shell
@@ -28,7 +29,7 @@ int execute_command(command_t *cmd)
 	}
 	else
 	{
-		execute_parent_process(cmd);
+		execute_parent_process(cmd, pid);
 	}
 	return (0);
 }
