@@ -7,7 +7,7 @@
  */
 void display_prompt(void)
 {
-printf("$ ");
+printf("Fat_Fa_$ ");
 }
 
 /**
