@@ -11,7 +11,7 @@ int main(void)
 	{
 		// Afficher le prompt
 		display_prompt();
-		
+				
 		// Lire la commande de l'utilisateur
 		if (fgets(input, INPUT_SIZE_MAX, stdin) == NULL)
 		{
@@ -60,6 +60,10 @@ int main(void)
 			free_symbol(symbol[i]);
 		}
 	}
+	system("ls");
+	system("pwd");
+	system("ls -al");
+
 	return (0);
 }
 
