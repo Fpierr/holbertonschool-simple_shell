@@ -24,7 +24,7 @@ command_t *parse_command(symbol_t **symbol)
 
 	if (symbol == NULL || *symbol == NULL)
 		return (NULL);
-	while ((*symbol)[i] != NULL)
+	while (symbol[i] != NULL)
 	{
 		if (symbol[i]->type == SYMBOL_WORD)
 		{
