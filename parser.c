@@ -9,6 +9,7 @@
 command_t *parse_command(symbol_t **symbol)
 {
 	int i = 0;
+
 	command_t *cmd = malloc(sizeof(command_t));
 
 	if (cmd == NULL)
@@ -23,19 +24,19 @@ command_t *parse_command(symbol_t **symbol)
 
 	if (symbol == NULL || *symbol == NULL)
 		return (NULL);
-	while (*symbol != NULL && (*symbol)[i] != NULL)
+	while ((*symbol)[i] != NULL)
 	{
-		if ((*symbol)[i]->type == SYMBOL_WORD)
+		if (symbol[i]->type == SYMBOL_WORD)
 		{
 			cmd->args = realloc(cmd->args, (i + 2) * sizeof(char *));
-			cmd->args[i] = strdup((*symbol)[i]->value);
+			cmd->args[i] = strdup(symbol[i]->value);
 			cmd->args[i + 1] = NULL;
 		}
-		else if ((*symbol)[i]->type == SYMBOL_REDIRECT_IN)
+		else if (symbol[i]->type == SYMBOL_REDIRECT_IN)
 		{
 			i++;
-			if ((*symbol)[i] != NULL && (*symbol)[i]->type == SYMBOL_WORD)
-				cmd->input_redirect = strdup((*symbol)[i]->value);
+			if (symbol[i] != NULL && symbol[i]->type == SYMBOL_WORD)
+				cmd->input_redirect = strdup(symbol[i]->value);
 			else
 			{
 				fprintf(stderr, "Error: Missing filename alter '<'.\n");
@@ -43,11 +44,11 @@ command_t *parse_command(symbol_t **symbol)
 				return (NULL);
 			}
 		}
-		else if ((*symbol)[i]->type == SYMBOL_REDIRECT_OUT)
+		else if (symbol[i]->type == SYMBOL_REDIRECT_OUT)
 		{
 			i++;
-			if ((*symbol)[i] != NULL && (*symbol)[i]->type == SYMBOL_WORD)
-				cmd->output_redirect = strdup((*symbol)[i]->value);
+			if (symbol[i] != NULL && symbol[i]->type == SYMBOL_WORD)
+				cmd->output_redirect = strdup(symbol[i]->value);
 			else
 			{
 				fprintf(stderr, "Error: Missing filename alter '>'.\n");
@@ -55,7 +56,7 @@ command_t *parse_command(symbol_t **symbol)
 				return (NULL);
 			}
 		}
-		else if ((*symbol)[i]->type == SYMBOL_BACKGROUND)
+		else if (symbol[i]->type == SYMBOL_BACKGROUND)
 			cmd->background = 1;
 		i++;
 	}
@@ -79,7 +80,6 @@ void free_command(command_t *cmd)
 			for (i = 0; cmd->args[i] != NULL; i++)
 				free(cmd->args[i]);
 			free(cmd->args);
-			cmd->args = NULL;
 		}
 		free(cmd->input_redirect);
 		free(cmd->output_redirect);

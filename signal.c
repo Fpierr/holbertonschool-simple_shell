@@ -6,7 +6,7 @@
  *
  * Return: void
  */
-static void handle_signal(int signo)
+void handle_signal(int signo)
 {
 	if (signo == SIGINT)
 	{

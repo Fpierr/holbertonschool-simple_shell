@@ -1,4 +1,4 @@
-#include "shell"
+#include "shell.h"
 
 /**
  * display_prompt - displays the prompt
@@ -9,6 +9,7 @@ void display_prompt(void)
 {
 printf("$ ");
 }
+
 /**
  * display_result - displays the result of a commande execution
  * @result: the result code of the command
@@ -25,6 +26,7 @@ void display_result(int result)
 		printf("command execution failed.\n");
 	}
 }
+
 /**
  * display_error - displays an error message
  * @message: the error message to display
@@ -34,6 +36,7 @@ void display_error(const char *message)
 {
 	fprintf(stderr, "Error: %s\n", message);
 }
+
 /**
  * display_command - displays information about a command
  * @cmd: a pointer to the command structure
@@ -46,7 +49,7 @@ void display_command(command_t *cmd)
 		fprintf(stderr, "Error: invalid command.\n");
 		return;
 	}
-	printf("command:");
+	printf("Command:");
 
 	for (int i = 0; cmd->args[i] != NULL; i++)
 	{
@@ -56,14 +59,14 @@ void display_command(command_t *cmd)
 
 	if (cmd->input_redirect != NULL)
 	{
-		printf("input redirect: %s\n", cmd->input_redirect);
+		printf("Input redirect: %s\n", cmd->input_redirect);
 	}
 	if (cmd->output_redirect != NULL)
 	{
-	printf("output redirect: %s\n", cmd->output_redirect);
+	printf("Output redirect: %s\n", cmd->output_redirect);
 	}
-	if (cmd->blackground)
+	if (cmd->background)
 	{
-	printf("blackground execution: yes\n");
+	printf("Background execution: yes\n");
 	}
 }
