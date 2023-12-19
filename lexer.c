@@ -12,11 +12,15 @@ symbol_t *get_next_symbol(char *input)
 	size_t len;
 	char *start;
 
-
 	if (input == NULL || *input == '\0')
 		return (NULL);
 
 	symbol = malloc(sizeof(symbol_t));
+	if (symbol == NULL)
+	{
+		fprintf(stderr, "Error: Memory allocation for symbol failed\n");
+		exit(EXIT_FAILURE);
+	}
 	symbol->value = NULL;
 
 	while (*input == ' ' || *input == '\t')

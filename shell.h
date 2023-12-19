@@ -29,7 +29,7 @@
  *
  * Description: to enumerate the symbol to use to create the simple shell
  */
-typedef enum symbol_type_s
+typedef enum
 {
 	SYMBOL_UNKNOWN,
 	SYMBOL_WORD,
@@ -38,8 +38,8 @@ typedef enum symbol_type_s
 	SYMBOL_PIPE,
 	SYMBOL_BACKGROUND,
 	SYMBOL_SEMICOLON,
-	SYMBOL_EOL,
-} symbol_type;
+	SYMBOL_EOL
+} symbol_type_t;
 
 /**
  * struct symbol_s - the structure of the symbol to use
@@ -48,7 +48,7 @@ typedef enum symbol_type_s
  */
 typedef struct symbol_s
 {
-	symbol_type type;
+	symbol_type_t type;
 	char *value;
 } symbol_t;
 
@@ -76,7 +76,7 @@ int execute_command(command_t *cmd);
 void execute_child_process(command_t *cmd);
 void execute_parent_process(command_t *cmd, pid_t child_pid);
 int execute_builtin(command_t *cmd);
-static void handle_signal(int signo);
+void handle_signal(int signo);
 void setup_signal_handlers(void);
 int print_parent_pid(void);
 void display_prompt(void);
