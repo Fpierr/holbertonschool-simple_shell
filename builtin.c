@@ -80,6 +80,10 @@ int execute_ls(command_t *cmd)
 	{
 		system("ls -al");
 	}
+	else if (cmd->args[1] != NULL && strcmp(cmd->args[1], "-l") == 0)
+	{
+		system("ls -l");
+	}
 	else
 	{
 		system("ls");
