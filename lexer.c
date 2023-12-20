@@ -77,7 +77,6 @@ symbol_t *get_next_symbol(char *input)
 		strncpy(symbol->value, start, len);
 		symbol->value[len] = '\0';
 	}
-
 	return (symbol);
 }
 

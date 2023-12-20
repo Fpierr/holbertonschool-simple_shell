@@ -44,6 +44,8 @@ void display_error(const char *message)
  */
 void display_command(command_t *cmd)
 {
+	int i;
+
 	if (cmd == NULL || cmd->args == NULL || cmd->args[0] == NULL)
 	{
 		fprintf(stderr, "Error: invalid command.\n");
@@ -51,7 +53,7 @@ void display_command(command_t *cmd)
 	}
 	printf("Command:");
 
-	for (int i = 0; cmd->args[i] != NULL; i++)
+	for (i = 0; cmd->args[i] != NULL; i++)
 	{
 		printf("%s ", cmd->args[i]);
 	}

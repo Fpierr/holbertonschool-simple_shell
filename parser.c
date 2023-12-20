@@ -75,12 +75,12 @@ void free_command(command_t *cmd)
 
 	if (cmd != NULL)
 	{
-		if (cmd->args != NULL)
+		for (i = 0; cmd->args[i] != NULL; i++)
 		{
-			for (i = 0; cmd->args[i] != NULL; i++)
-				free(cmd->args[i]);
-			free(cmd->args);
+			free(cmd->args[i]);
 		}
+		free(cmd->args);
+
 		free(cmd->input_redirect);
 		free(cmd->output_redirect);
 		free(cmd);
