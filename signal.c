@@ -16,6 +16,11 @@ void handle_signal(int signo)
 	{
 		printf("\nReceived Ctrl+Z\n");
 	}
+	else if (signo == SIGQUIT)
+	{
+		printf("\nReceived Ctrl+\\ (SIGQUIT)\n");
+		exit(EXIT_FAILURE);
+	}
 }
 
 /**
@@ -32,6 +37,11 @@ void setup_signal_handlers(void)
 		exit(EXIT_FAILURE);
 	}
 	if (signal(SIGTSTP, handle_signal) == SIG_ERR)
+	{
+		perror("signal");
+		exit(EXIT_FAILURE);
+	}
+	if (signal(SIGQUIT, handle_signal) == SIG_ERR)
 	{
 		perror("signal");
 		exit(EXIT_FAILURE);

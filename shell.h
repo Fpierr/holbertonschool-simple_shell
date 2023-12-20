@@ -88,6 +88,5 @@ void display_prompt(void);
 void display_result(int result);
 void display_error(const char *msg);
 void display_command(command_t *cmd);
-int getline_sh(void);
 
 #endif /* SHELL_H */
