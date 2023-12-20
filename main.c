@@ -9,6 +9,7 @@ int main(void)
 	int result, i;
 
 	setup_signal_handlers(); /* initialize the manage signal */
+	getline_sh();
 	while (1)
 	{
 		display_prompt(); /* Display the prompt */
