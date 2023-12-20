@@ -10,12 +10,21 @@ int main(void)
 
 	setup_signal_handlers(); /* initialize the manage signal */
 	while (1)
+
 	{
 		display_prompt(); /* Display the prompt */
 		if (fgets(input, INPUT_SIZE_MAX, stdin) == NULL)
 		{
-			fprintf(stderr, "Error reading input.\n");
-			continue;
+			if (feof(stdin))
+			{
+				printf("\nReceived Ctrl+D (EOF)\n");
+				break;
+			}
+			else
+			{
+				perror("Error reading input.\n");
+				continue;
+			}
 		}
 		input[strcspn(input, "\n")] = '\0';
 		symbol_count = 0;
