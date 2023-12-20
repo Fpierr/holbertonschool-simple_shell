@@ -5,7 +5,7 @@
  * execute_command - fonction to execute a command in the simple shell
  * @cmd: the command to execute
  *
- * Return: int
+ * Return: 0 on success, or -1 on failure
  */
 int execute_command(command_t *cmd)
 {
