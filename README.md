@@ -1,7 +1,5 @@
 # C - Simple Shell
 
-
-![Flowchart](https://github.com/Fpierr/holbertonschool-simple_shell/assets/141949137/c2f8bed4-adf9-4737-bbee-b98d11e176f6)
 =======
 
 ### Concept
@@ -149,6 +147,8 @@ $
 The Checker will be released at the end of the project (1-2 days before the deadline). We strongly encourage the entire class to work together to create a suite of checks covering both regular tests and edge cases for each task. See task `8. Test suite`.
 
 After the deadline, you will need to fork the repository if it’s not on your Github account to be able to be corrected by the checker.
+
+![Flowchart (1)](https://github.com/Fpierr/holbertonschool-simple_shell/assets/141949137/49ad994e-9f1b-4c56-8e38-7e37bcdaecbd)
 
 ## Author
 
