@@ -12,7 +12,6 @@ int main(int argc, char *argv[])
 	(void)argv;
 
 	printf("PATH: %s\n", getenv("PATH"));
-
 	if (argc == 1)
 	{
 		interactive_mode();

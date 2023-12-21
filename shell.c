@@ -77,8 +77,12 @@ void non_interactive_mode(void)
 	command_t *builtin_cmd;
 	int result, i;
 
-	while (fgets(input, INPUT_SIZE_MAX, stdin) != NULL)
+	while (!feof(stdin) && !ferror(stdin) && (isatty(fileno(stdin)) ||
+			       fgets(input, INPUT_SIZE_MAX, stdin) != NULL))
 	{
+		if (!isatty(fileno(stdin)))
+			printf("%s", input);
+
 		input[strcspn(input, "\n")] = '\0';
 		symbol_count = 0;
 

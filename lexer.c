@@ -73,10 +73,20 @@ symbol_t *get_next_symbol(char *input)
 			input++;
 		}
 		len = input - start;
-		symbol->value = malloc(len + 1);
-		strncpy(symbol->value, start, len);
-		symbol->value[len] = '\0';
+		if (len > 0)
+		{
+			symbol->value = malloc(len + 1);
+			if (symbol->value == NULL)
+			{
+				fprintf(stderr, "Error: Memory allocation for symbol value failed\n");
+				exit(EXIT_FAILURE);
+			}
+			strncpy(symbol->value, start, len);
+			symbol->value[len] = '\0';
+		}
 	}
+	printf("Debug: Detected symbol type: %d, value: %s\n", symbol->type, symbol->value);
+
 	return (symbol);
 }
 

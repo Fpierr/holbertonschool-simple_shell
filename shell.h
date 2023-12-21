@@ -29,7 +29,7 @@
  *
  * Description: to enumerate the symbol to use to create the simple shell
  */
-typedef enum
+typedef enum symbol_type_s
 {
 	SYMBOL_UNKNOWN,
 	SYMBOL_WORD,
@@ -54,6 +54,7 @@ typedef struct symbol_s
 
 symbol_t *get_next_symbol(char *input);
 void free_symbol(symbol_t *symbol);
+extern char **environ;
 
 /**
  * struct command_s - analyze of syntaxe
@@ -73,8 +74,8 @@ typedef struct command_s
 command_t *parse_command(symbol_t **symbol);
 void free_command(command_t *cmd);
 int execute_command(command_t *cmd);
-void execute_child_process(command_t *cmd);
-void execute_parent_process(command_t *cmd, pid_t child_pid);
+int execute_direct_command(command_t *cmd);
+int execute_command_in_path(command_t *cmd);
 int execute_builtin(command_t *cmd);
 int execute_cd(command_t *cmd);
 int execute_exit(void);
@@ -88,7 +89,8 @@ void display_prompt(void);
 void display_result(int result);
 void display_error(const char *msg);
 void display_command(command_t *cmd);
-void interactive_mode();
-void non_interactive_mode();
+void interactive_mode(void);
+void non_interactive_mode(void);
+char *get_path(char *cmd);
 
 #endif /* SHELL_H */
