@@ -1,6 +1,7 @@
 # C - Simple Shell
 
-This shell has been created through interaction with a user and a core. the user parse a command, and parse that:
+This shell has been created through interaction with a user and a core. 
+The user parses a command, and the shell executes it accordingly :
 
 ```
 WHILE user does not request to quit
