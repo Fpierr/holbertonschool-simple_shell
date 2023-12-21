@@ -1,5 +1,20 @@
 # C - Simple Shell
 
+TANT QUE utilisateur ne demande pas à quitter
+    LIRE commande depuis l'utilisateur
+    ANALYSER ET INTERPRÉTER la commande
+    SI la commande est interne AU SHELL
+        EXÉCUTER la commande interne
+    SINON
+        CRÉER UN PROCESSUS FILS
+        SI processus fils a été créé avec succès
+            EXÉCUTER la commande externe dans le processus fils
+            ATTENDRE la fin du processus fils
+        FIN SI
+    FIN SI
+FIN TANT QUE
+
+
 =======
 
 ### Concept
