@@ -1,13 +1,29 @@
 # C - Simple Shell
 
-<div style="text-align:center"><img src="C:\Users\USER\Downloads\Flowchart.jpeg" /></div>
-<<<<<<< HEAD
+This shell has been created through interaction with a user and a core. 
+The user parses a command, and the shell executes it accordingly :
+
+```
+WHILE user does not request to quit
+    READ command from the user
+    PARSE AND INTERPRET the command
+    IF the command is internal to the SHELL
+        EXECUTE the internal command
+    ELSE
+        CREATE A CHILD PROCESS
+        IF the child process was created successfully
+            EXECUTE the external command in the child process
+            WAIT for the child process to finish
+        END IF
+    END IF
+END WHILE
+```
 =======
 
->>>>>>> b313be2fc74c2597d9b475f6787bb7dc86bc8e57
 ### Concept
 For this project, we expect you to look at these concepts:
 - Approaching a Project
+
 - Everything you need to know to start coding your own shell
 ## Resources
 * Read or watch:
@@ -149,6 +165,8 @@ $
 The Checker will be released at the end of the project (1-2 days before the deadline). We strongly encourage the entire class to work together to create a suite of checks covering both regular tests and edge cases for each task. See task `8. Test suite`.
 
 After the deadline, you will need to fork the repository if it’s not on your Github account to be able to be corrected by the checker.
+
+![Flowchart (1)](https://github.com/Fpierr/holbertonschool-simple_shell/assets/141949137/49ad994e-9f1b-4c56-8e38-7e37bcdaecbd)
 
 ## Author
 
