@@ -1,20 +1,22 @@
 # C - Simple Shell
 
-TANT QUE utilisateur ne demande pas à quitter
-    LIRE commande depuis l'utilisateur
-    ANALYSER ET INTERPRÉTER la commande
-    SI la commande est interne AU SHELL
-        EXÉCUTER la commande interne
-    SINON
-        CRÉER UN PROCESSUS FILS
-        SI processus fils a été créé avec succès
-            EXÉCUTER la commande externe dans le processus fils
-            ATTENDRE la fin du processus fils
-        FIN SI
-    FIN SI
-FIN TANT QUE
+This shell has been created through interaction with a user and a core. the user parse a command, and parse that:
 
-
+```
+WHILE user does not request to quit
+    READ command from the user
+    PARSE AND INTERPRET the command
+    IF the command is internal to the SHELL
+        EXECUTE the internal command
+    ELSE
+        CREATE A CHILD PROCESS
+        IF the child process was created successfully
+            EXECUTE the external command in the child process
+            WAIT for the child process to finish
+        END IF
+    END IF
+END WHILE
+```
 =======
 
 ### Concept
