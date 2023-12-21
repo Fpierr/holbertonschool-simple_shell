@@ -1,0 +1,63 @@
+.TH HSH "1" "December 17, 2023" "0.1" "Simple_Shell"
+
+.SH NAME
+.B hsh
+\- Simple shell \- UNIX Command Interpreter
+
+.SH SYNOPSIS
+.PP
+.B hsh
+hsh [Command] [filename]
+
+.SH DESCRIPTION
+.PP
+.Nm
+The man page presnet a simple and efficient command interpreter designed for UNIX-like systems.
+It accepts the name of a \hsh [Command] [filename] and any associated arguments, executing the process in a child
+fork and displaying the output of that command.
+
+.SH USAGE / COMPILATION
+.PP
+Compile the source code using the following command:
+.PP
+.B gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
+.PP
+
+.SH RETURN VALUE
+.PP
+.B hsh
+will return the exit status unless specified by an exit code.
+
+.SH EXAMPLES
+.PP
+====================================
+
+.SH INTERACTIVE MODE EXAMPLE
+.PP
+.PP
+$ ./hsh
+.PP
+##---> /bin/ls
+.PP
+====================================
+
+.SH NON-INTERACTIVE MODE EXAMPLE
+.PP
+.PP
+$ echo "/bin/ls" | ./hsh
+.PP
+.PP
+
+====================================
+
+.SH SEE ALSO
+.PP
+.I sh(1)
+
+.SH KNOWN ISSUES
+.PP
+Entering "yes" may cause an infinite loop.
+
+.SH ATHORS
+Fatoumata BAH <7542@holbertonstudents.com>
+Fanuel PIERRE <7475@holbertonstudents.com>
