@@ -76,17 +76,30 @@ int execute_cd(command_t *cmd)
  */
 int execute_ls(command_t *cmd)
 {
-	if (cmd->args[1] != NULL && strcmp(cmd->args[1], "-al") == 0)
+	pid_t pid = fork();
+
+	if (pid == -1)
 	{
-		system("ls -al");
+		perror("fork");
+		return (-1);
 	}
-	else if (cmd->args[1] != NULL && strcmp(cmd->args[1], "-l") == 0)
+	else if (pid == 0)
 	{
-		system("ls -l");
+		if (cmd->args[1] != NULL && (strcmp(cmd->args[1], "-al") == 0 ||
+				       strcmp(cmd->args[1], "-l") == 0))
+		{
+			execlp(cmd->args[0], cmd->args[0], cmd->args[1], NULL);
+		}
+		else
+		{
+			execlp(cmd->args[0], cmd->args[0], NULL);
+		}
+		perror("execlp");
+		exit(EXIT_FAILURE);
 	}
 	else
 	{
-		system("ls");
+		waitpid(pid, NULL, 0);
 	}
 	return (0);
 }

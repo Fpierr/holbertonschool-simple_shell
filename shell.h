@@ -88,5 +88,7 @@ void display_prompt(void);
 void display_result(int result);
 void display_error(const char *msg);
 void display_command(command_t *cmd);
+void interactive_mode();
+void non_interactive_mode();
 
 #endif /* SHELL_H */
