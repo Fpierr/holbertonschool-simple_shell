@@ -1,12 +1,13 @@
 # C - Simple Shell
 
 <div style="text-align:center"><img src="C:\Users\USER\Downloads\Flowchart.jpeg" /></div>
-
+![Flowchart](https://github.com/Fpierr/holbertonschool-simple_shell/assets/141949137/c2f8bed4-adf9-4737-bbee-b98d11e176f6)
 =======
 
 ### Concept
 For this project, we expect you to look at these concepts:
 - Approaching a Project
+
 - Everything you need to know to start coding your own shell
 ## Resources
 * Read or watch:
