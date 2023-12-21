@@ -1,10 +1,9 @@
 # C - Simple Shell
 
 <div style="text-align:center"><img src="C:\Users\USER\Downloads\Flowchart.jpeg" /></div>
-<<<<<<< HEAD
+
 =======
 
->>>>>>> b313be2fc74c2597d9b475f6787bb7dc86bc8e57
 ### Concept
 For this project, we expect you to look at these concepts:
 - Approaching a Project
